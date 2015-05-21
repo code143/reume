@@ -1,0 +1,102 @@
+<!DOCTYPE HTML>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="description" content="" />
+        <meta name="keywords" content="">
+        
+  <script src="http://code.jquery.com/jquery.js"></script>           
+<script src="dataTables.bootstrap.js"></script>
+<script src= "jquery.dataTables.min.js"></script>
+<script src="jquery-1.11.1.min.js"></script>
+<script src="gool.js"></script>
+<noscript>
+            <link rel="stylesheet" type="text/css" href="dataTables.bootstrap.css" />
+            <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+        </noscript>
+
+<style>
+tfoot input {
+        width: 100%;
+        padding: 3px;
+        box-sizing: border-box;
+    }
+
+</style>
+
+
+
+<script>
+$(document).ready(function() {
+    // Setup - add a text input to each footer cell
+    $('#example tfoot th').each( function () {
+        var title = $('#example thead th').eq( $(this).index() ).text();
+        $(this).html( '<input type="text" placeholder="Search '+title+'" />' );
+    } );
+ 
+    // DataTable
+    var table = $('#example').DataTable();
+ 
+    // Apply the search
+    table.columns().eq( 0 ).each( function ( colIdx ) {
+        $( 'input', table.column( colIdx ).footer() ).on( 'keyup change', function () {
+            table
+                .column( colIdx )
+                .search( this.value )
+                .draw();
+        } );
+    } );
+} );
+</script>
+
+
+
+<table id="example" class="display" cellspacing="0" width="100%">
+
+        <thead>
+            <tr>
+                <th>Masters projects</th>
+                <th>organisation skills</th>
+                <th>communication skills</th>
+                <th>Computer Skills </th>
+                <th>Bachelors Projects</th>
+                <th>Hobbies</th>
+            </tr>
+        </thead>
+ 
+        <tfoot>
+            <tr>
+               <th>Masters projects</th>
+                <th>organisation skills</th>
+                <th>communication skills</th>
+                <th>Computer Skills </th>
+                <th>Bachelors Projects</th>
+                <th>Hobbies</th>
+            </tr>
+        </tfoot>
+ 
+        <tbody>
+            <tr>
+                <td> SAPInstallations: setting up the 2012R2 windows server in virtual environment using VM-ware V-sphere client and installation of SAP Solomon system 7.03. Installation of Max-db using db console. Staring and stopping of dual stack system and better understanding of SAPR3 Architecture.
+</td>
+                <td>Participated in a ROBO - OLYMPIC, National level  robotics competition held at SRM University in 2010.</td>
+                <td>Pearson International English Test Score-60/90</td>
+                <td>WEB Application Development: HTML, CSS, JavaScript & PHP.</td>
+                <td>Internship: A Project on Millimetre waves atDRDO Delhi.
+</td>
+                <td>Committee member in DOKINCE-11, a national level technical symposium conducted by EIE-ICE department in SRM University
+</td>
+            </tr>
+               <tr>
+                <td> Project Management: with a the team of 5members developed a Project documentation on PERSONEL ASSISTANT AUDIO INTERFACE(Healthcare) following Agile methodology.
+                    <td>Participated in a ROBO - OLYMPIC, National level  robotics competition held at SRM University in 2010.</td>
+                <td>Pearson International English Test Score-60/90</td>
+                <td>WEB Application Development: HTML, CSS, JavaScript & PHP.</td>
+                <td>Internship: A Project on Millimetre waves atDRDO Delhi.
+</td>
+                <td>Committee member in DOKINCE-11, a national level technical symposium conducted by EIE-ICE department in SRM University
+</td>
+            </tr>
+
+            
+           
+        </tbody>
+    </table>
